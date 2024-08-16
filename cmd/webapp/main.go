@@ -2,20 +2,20 @@ package main
 
 import (
 	"fmt"
+	"github.com/guttenbergovitz/loubna-go/web/templates"
 	"net/http"
+
+	"github.com/a-h/templ"
 )
 
 func main() {
-	http.HandleFunc("/", homeHandler)
-	fmt.Println("Starting server on :8080")
-	if err := http.ListenAndServe(":8080", nil); err != nil {
-		fmt.Printf("Error starting server: %s\n", err)
-	}
-}
+	component := templates.Hello("Loubna Photo")
 
-func homeHandler(w http.ResponseWriter, r *http.Request) {
-	_, err := fmt.Fprintln(w, "Welcome to the Photography Website!")
+	http.Handle("/", templ.Handler(component))
+
+	fmt.Println("Listening on :3000")
+	err := http.ListenAndServe(":3000", nil)
 	if err != nil {
-		fmt.Printf("Error writing response: %s\n", err)
+		fmt.Printf("Failed to start server: %v", err)
 	}
 }
