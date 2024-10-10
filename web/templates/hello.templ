@@ -1,6 +1,6 @@
 package templates
 
-templ Hello(name string) {
-	<h1>Hello, { name }</h1>
-	<h2>How are you doing today?</h2>
+templ Hello(name surname string) {
+<h1>Hello, { name } { surname || "x" }</h1>
+<h2>How are you doing today?</h2>
 }
