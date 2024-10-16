@@ -1,6 +1,13 @@
 package templates
 
-templ Hello(name surname string) {
-<h1>Hello, { name } { surname || "x" }</h1>
+type Gopher struct {
+    Name string
+    Surname string
+    Age int
+}
+
+templ Hello(name, surname string, goph Gopher) {
+<h1>Hello :: { name } { surname }</h1>
 <h2>How are you doing today?</h2>
+<p>My name is { goph.Name } { goph.Surname }...</p>
 }

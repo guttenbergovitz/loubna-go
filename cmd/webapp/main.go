@@ -11,7 +11,13 @@ func main() {
 	fs := http.FileServer(http.Dir("./web/static"))
 	http.Handle("/static/", http.StripPrefix("/static/", fs))
 
-	component := templates.Hello("Loubna Photo")
+	gopher := templates.Gopher{
+		Name:    "Gopher",
+		Surname: "Go",
+		Age:     10,
+	}
+
+	component := templates.Hello("Loubna", "Photo", gopher)
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		err := templates.Layout(component).Render(context.Background(), w)
 		if err != nil {
