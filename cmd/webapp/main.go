@@ -1,21 +1,33 @@
 package main
 
 import (
+	"context"
 	"fmt"
+	"github.com/guttenbergovitz/loubna-go/web/templates"
 	"net/http"
 )
 
 func main() {
-	http.HandleFunc("/", homeHandler)
-	fmt.Println("Starting server on :8080")
-	if err := http.ListenAndServe(":8080", nil); err != nil {
-		fmt.Printf("Error starting server: %s\n", err)
-	}
-}
+	fs := http.FileServer(http.Dir("./web/static"))
+	http.Handle("/static/", http.StripPrefix("/static/", fs))
 
-func homeHandler(w http.ResponseWriter, r *http.Request) {
-	_, err := fmt.Fprintln(w, "Welcome to the Photography Website!")
+	gopher := templates.Gopher{
+		Name:    "Gopher",
+		Surname: "Go",
+		Age:     10,
+	}
+
+	component := templates.Hello("Loubna", "Photo", gopher)
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		err := templates.Layout(component).Render(context.Background(), w)
+		if err != nil {
+			http.Error(w, "Failed to render page", http.StatusInternalServerError)
+		}
+	})
+
+	fmt.Println("Listening on :3000")
+	err := http.ListenAndServe(":3000", nil)
 	if err != nil {
-		fmt.Printf("Error writing response: %s\n", err)
+		fmt.Printf("Failed to start server: %v", err)
 	}
 }
