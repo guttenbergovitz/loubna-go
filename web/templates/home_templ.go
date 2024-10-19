@@ -57,15 +57,15 @@ func homeContent() templ.Component {
 			templ_7745c5c3_Var2 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<section class=\"hero\"><h1>Bespoke photography</h1><p>that is truly</p><h2>Handcrafted and Certified</h2><p>As Museum Quality.</p><button>Tell me more</button></section><section class=\"aesthetics\"><h2>The Aesthetics and Prestige...</h2><p>of Your Indoor Space</p><p>...are Important*</p><p class=\"footnote\">* just like the multitude of other tasks filling up your everyday schedule...</p></section><section class=\"services\">")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<main class=\"home\"><section class=\"hero\"><h1 class=\"hero__title\">Bespoke photography</h1><span class=\"hero__subtitle\">that is truly</span> <span class=\"hero__highlight\">Handcrafted and Certified</span> <span class=\"hero__quality\">As Museum Quality.</span> <button class=\"hero__cta\">Tell me more</button></section><section class=\"aesthetics\"><h2 class=\"aesthetics__title\">The Aesthetics and Prestige...</h2><p class=\"aesthetics__subtitle\">of Your Indoor Space</p><p class=\"aesthetics__emphasis\">...are Important<sup class=\"aesthetics__asterisk\">*</sup></p><p class=\"aesthetics__footnote\">* just like the multitude of other tasks filling up your everyday schedule...</p></section><section class=\"services\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templ.Raw("<h2>So, how do you get the right pictures</h2>").Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = templ.Raw(`<h2 class="services__title">So, how do you get the right pictures</h2>`).Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templ.Raw("<p>for your home<br>for your office<br>for your project</p>").Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = templ.Raw(`<p class="services__subtitle">for your home<br>for your office<br>for your project</p>`).Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -75,39 +75,39 @@ func homeContent() templ.Component {
 		}
 		for _, service := range []PhotoService{
 			{
-				Title:       "BUY A RANDOM PIC ON THE STOCK?",
+				Title:       "Buy a random pic on the stock?",
 				Description: "If you're fine using a widely popular snapshot and licensing its license, it's not a problem. However, if you're looking for a unique piece to complement your interior... this is unsuitable.",
 			},
 			{
-				Title:       "HIRE A PHOTOGRAPHIC STUDIO?",
+				Title:       "Hire a photographic studio?",
 				Description: "Popular photographers reflect current trends, relying heavily on digital editing and AI. But... trends change quickly, potentially making your interior outdated and gaudy.",
 			},
 			{
-				Title:       "BECOME AN ART SCOUT?",
+				Title:       "Become an art scout?",
 				Description: "This needs time and effort to immerse yourself in the world of art. It might not be the most productive path for you.",
 			},
 		} {
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"service-option\"><h3>")
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"service-option\"><h3 class=\"service-option__title\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var3 string
 			templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(service.Title)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/templates/home.templ`, Line: 46, Col: 23}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/templates/home.templ`, Line: 47, Col: 54}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</h3><p>")
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</h3><p class=\"service-option__description\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var4 string
 			templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(service.Description)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/templates/home.templ`, Line: 47, Col: 28}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/templates/home.templ`, Line: 48, Col: 65}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
 			if templ_7745c5c3_Err != nil {
@@ -118,7 +118,7 @@ func homeContent() templ.Component {
 				return templ_7745c5c3_Err
 			}
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</div><section class=\"unique-selling-points\"><h2>\"Alright... But what sets you apart?\"</h2><div class=\"usp-grid\"><div class=\"usp-item\"><h3>LIFETIME GUARANTEE</h3><p>I provide a Certificate of Authenticity (COA) with each photograph, ensuring its limited edition, numbered status, and museum-grade longevity. These aren't just pictures—they're investments.</p></div><div class=\"usp-item\"><h3>CRAFTSMANSHIP</h3><p>Each photograph is a one-of-a-kind, high-quality, handmade artwork, crafted with specialized knowledge and years of experience. No Photoshop. No AI.</p></div><div class=\"usp-item\"><h3>LOCAL</h3><p>I am not hidden away in some anonymous location. My photos are taken right here in our neighbourhood. As a local company, you can easily reach me whenever you need.</p></div><div class=\"usp-item\"><h3>SPECIALIZATION</h3><p>A man of many talents... but master of none. Expertise drives success. That's why I focus on the industries I know, to guarantee results.</p></div></div></section><section class=\"bespoke-service\"><h2>BESPOKE</h2><p>You point out your favourite place on the map, and I'll go there to take a picture.</p><p>If you like what you see, great!</p><p>If not, no worries, but I think you'll be glad you gave me a shot.</p><button>Order the Sample</button></section>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</div><section class=\"unique-selling-points\"><h2 class=\"unique-selling-points__title\">\"Alright... But what sets you apart?\"</h2><div class=\"usp-grid\"><div class=\"usp-item\"><h3 class=\"usp-item__title\">Lifetime Guarantee</h3><p class=\"usp-item__description\">I provide a Certificate of Authenticity (COA) with each photograph, ensuring its limited edition, numbered status, and museum-grade longevity. These aren't just pictures—they're investments.</p></div><div class=\"usp-item\"><h3 class=\"usp-item__title\">Craftsmanship</h3><p class=\"usp-item__description\">Each photograph is a one-of-a-kind, high-quality, handmade artwork, crafted with specialized knowledge and years of experience. No Photoshop. No AI.</p></div><div class=\"usp-item\"><h3 class=\"usp-item__title\">Local</h3><p class=\"usp-item__description\">I am not hidden away in some anonymous location. My photos are taken right here in our neighbourhood. As a local company, you can easily reach me whenever you need.</p></div><div class=\"usp-item\"><h3 class=\"usp-item__title\">Specialization</h3><p class=\"usp-item__description\">A man of many talents... but master of none. Expertise drives success. That's why I focus on the industries I know, to guarantee results.</p></div></div></section><section class=\"bespoke-service\"><h2 class=\"bespoke-service__title\">Bespoke</h2><p class=\"bespoke-service__description\">You point out your favourite place on the map, and I'll go there to take a picture.</p><p class=\"bespoke-service__note\">If you like what you see, great!</p><p class=\"bespoke-service__note\">If not, no worries, but I think you'll be glad you gave me a shot.</p><button class=\"bespoke-service__cta\">Order the Sample</button></section></main>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

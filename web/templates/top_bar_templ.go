@@ -8,7 +8,7 @@ package templates
 import "github.com/a-h/templ"
 import templruntime "github.com/a-h/templ/runtime"
 
-func Layout(content templ.Component) templ.Component {
+func TopBar() templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templruntime.GetBuffer(templ_7745c5c3_W)
@@ -26,15 +26,7 @@ func Layout(content templ.Component) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<!doctype html><html lang=\"en\"><head><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><title>Loubna -- Photo</title><link rel=\"stylesheet\" type=\"text/css\" href=\"/static/styles.css\"></head><body>")
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		templ_7745c5c3_Err = content.Render(ctx, templ_7745c5c3_Buffer)
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</body></html>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<header class=\"topbar\"><div class=\"topbar__container\"><a href=\"/\" class=\"topbar__logo\"><img src=\"/static/images/loubna-photo-logo.svg\" alt=\"Loubna Photo\" class=\"topbar__logo-image\"></a><nav class=\"topbar__nav\"><ul class=\"topbar__nav-list\"><li class=\"topbar__nav-item\"><a href=\"/\" class=\"topbar__nav-link\">Home</a></li><li class=\"topbar__nav-item\"><a href=\"/about\" class=\"topbar__nav-link\">About</a></li><li class=\"topbar__nav-item\"><a href=\"/gallery\" class=\"topbar__nav-link\">Gallery</a></li><li class=\"topbar__nav-item\"><a href=\"/contact\" class=\"topbar__nav-link\">Contact</a></li></ul></nav></div></header>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
