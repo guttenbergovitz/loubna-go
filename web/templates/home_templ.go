@@ -118,7 +118,15 @@ func homeContent() templ.Component {
 				return templ_7745c5c3_Err
 			}
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</div><section class=\"unique-selling-points\"><h2 class=\"unique-selling-points__title\">\"Alright... But what sets you apart?\"</h2><div class=\"usp-grid\"><div class=\"usp-item\"><h3 class=\"usp-item__title\">Lifetime Guarantee</h3><p class=\"usp-item__description\">I provide a Certificate of Authenticity (COA) with each photograph, ensuring its limited edition, numbered status, and museum-grade longevity. These aren't just pictures—they're investments.</p></div><div class=\"usp-item\"><h3 class=\"usp-item__title\">Craftsmanship</h3><p class=\"usp-item__description\">Each photograph is a one-of-a-kind, high-quality, handmade artwork, crafted with specialized knowledge and years of experience. No Photoshop. No AI.</p></div><div class=\"usp-item\"><h3 class=\"usp-item__title\">Local</h3><p class=\"usp-item__description\">I am not hidden away in some anonymous location. My photos are taken right here in our neighbourhood. As a local company, you can easily reach me whenever you need.</p></div><div class=\"usp-item\"><h3 class=\"usp-item__title\">Specialization</h3><p class=\"usp-item__description\">A man of many talents... but master of none. Expertise drives success. That's why I focus on the industries I know, to guarantee results.</p></div></div></section><section class=\"bespoke-service\"><h2 class=\"bespoke-service__title\">Bespoke</h2><p class=\"bespoke-service__description\">You point out your favourite place on the map, and I'll go there to take a picture.</p><p class=\"bespoke-service__note\">If you like what you see, great!</p><p class=\"bespoke-service__note\">If not, no worries, but I think you'll be glad you gave me a shot.</p><button class=\"bespoke-service__cta\">Order the Sample</button></section></main>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</div>")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = UniqueSellingPoints().Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<section class=\"bespoke-service\"><h2 class=\"bespoke-service__title\">Bespoke</h2><p class=\"bespoke-service__description\">You point out your favourite place on the map, and I'll go there to take a picture.</p><p class=\"bespoke-service__note\">If you like what you see, great!</p><p class=\"bespoke-service__note\">If not, no worries, but I think you'll be glad you gave me a shot.</p><button class=\"bespoke-service__cta\">Order the Sample</button></section></main>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

@@ -1,9 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
+
 :root {
   --color-primary: #1a1a1a;
   --color-secondary: #f4f4f4;
   --color-accent: #d4af37;
-  --font-main: 'Helvetica Neue', Arial, sans-serif;
-  --font-accent: 'Georgia', serif;
+  --font-main: 'League Spartan', Arial, sans-serif;
+  --font-accent: 'Roboto Slab', serif;
   --spacing-unit: 1rem;
 }
 
