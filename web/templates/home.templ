@@ -1,0 +1,79 @@
+package templates
+
+type PhotoService struct {
+	Title       string
+	Description string
+}
+
+templ Home() {
+	@Layout(homeContent())
+}
+
+templ homeContent() {
+	<section class="hero">
+		<h1>Bespoke photography</h1>
+		<p>that is truly</p>
+		<h2>Handcrafted and Certified</h2>
+		<p>As Museum Quality.</p>
+		<button>Tell me more</button>
+	</section>
+	<section class="aesthetics">
+		<h2>The Aesthetics and Prestige...</h2>
+		<p>of Your Indoor Space</p>
+		<p>...are Important*</p>
+		<p class="footnote">* just like the multitude of other tasks filling up your everyday schedule...</p>
+	</section>
+	<section class="services">
+		@templ.Raw("<h2>So, how do you get the right pictures</h2>")
+		@templ.Raw("<p>for your home<br>for your office<br>for your project</p>")
+	</section>
+	<div class="service-options">
+		for _, service := range []PhotoService{
+                        {
+                            Title: "BUY A RANDOM PIC ON THE STOCK?",
+                            Description: "If you're fine using a widely popular snapshot and licensing its license, it's not a problem. However, if you're looking for a unique piece to complement your interior... this is unsuitable.",
+                        },
+                        {
+                            Title: "HIRE A PHOTOGRAPHIC STUDIO?",
+                            Description: "Popular photographers reflect current trends, relying heavily on digital editing and AI. But... trends change quickly, potentially making your interior outdated and gaudy.",
+                        },
+                        {
+                            Title: "BECOME AN ART SCOUT?",
+                            Description: "This needs time and effort to immerse yourself in the world of art. It might not be the most productive path for you.",
+                        },
+                    } {
+			<div class="service-option">
+				<h3>{ service.Title }</h3>
+				<p>{ service.Description }</p>
+			</div>
+		}
+	</div>
+	<section class="unique-selling-points">
+		<h2>"Alright... But what sets you apart?"</h2>
+		<div class="usp-grid">
+			<div class="usp-item">
+				<h3>LIFETIME GUARANTEE</h3>
+				<p>I provide a Certificate of Authenticity (COA) with each photograph, ensuring its limited edition, numbered status, and museum-grade longevity. These aren't just pictures—they're investments.</p>
+			</div>
+			<div class="usp-item">
+				<h3>CRAFTSMANSHIP</h3>
+				<p>Each photograph is a one-of-a-kind, high-quality, handmade artwork, crafted with specialized knowledge and years of experience. No Photoshop. No AI.</p>
+			</div>
+			<div class="usp-item">
+				<h3>LOCAL</h3>
+				<p>I am not hidden away in some anonymous location. My photos are taken right here in our neighbourhood. As a local company, you can easily reach me whenever you need.</p>
+			</div>
+			<div class="usp-item">
+				<h3>SPECIALIZATION</h3>
+				<p>A man of many talents... but master of none. Expertise drives success. That's why I focus on the industries I know, to guarantee results.</p>
+			</div>
+		</div>
+	</section>
+	<section class="bespoke-service">
+		<h2>BESPOKE</h2>
+		<p>You point out your favourite place on the map, and I'll go there to take a picture.</p>
+		<p>If you like what you see, great!</p>
+		<p>If not, no worries, but I think you'll be glad you gave me a shot.</p>
+		<button>Order the Sample</button>
+	</section>
+}

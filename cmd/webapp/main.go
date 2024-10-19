@@ -11,15 +11,8 @@ func main() {
 	fs := http.FileServer(http.Dir("./web/static"))
 	http.Handle("/static/", http.StripPrefix("/static/", fs))
 
-	gopher := templates.Gopher{
-		Name:    "Gopher",
-		Surname: "Go",
-		Age:     10,
-	}
-
-	component := templates.Hello("Loubna", "Photo", gopher)
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		err := templates.Layout(component).Render(context.Background(), w)
+		err := templates.Home().Render(context.Background(), w)
 		if err != nil {
 			http.Error(w, "Failed to render page", http.StatusInternalServerError)
 		}

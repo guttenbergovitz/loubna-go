@@ -99,7 +99,7 @@ func Hello(name, surname string, goph Gopher) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(" years old.</p>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(" years old.</p><p>Have a nice day!</p>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
